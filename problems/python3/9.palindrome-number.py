@@ -9,7 +9,19 @@
 
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        return False if x < 0 else str(x) == str(x)[::-1]
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
+
+        temp = x
+        rev = 0
+        while x > 0:
+            rev = rev * 10 + x % 10
+            x //= 10
+
+        if temp == rev:
+            return True
+        else:
+            return False
 
 
 # @lc code=end
